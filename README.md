@@ -105,6 +105,7 @@ Trả lời:
 
 E1. Tạo script WorldToScreen.cs với nội dung:
 
+```csharp
 using UnityEngine;
 
 public class WorldToScreen : MonoBehaviour
@@ -117,7 +118,7 @@ public class WorldToScreen : MonoBehaviour
         Debug.Log(screenPos);
     }
 }
-
+```
 <img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/036b4e5d-a7a6-4dca-9937-7e6dc297f69e" />
 
 E2. Gắn script vào `Khối` và chạy game
