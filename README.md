@@ -91,5 +91,39 @@ Trả lời:
 
 - Vì sao `Đối tượng` trông to hoặc nhỏ hơn dù không đổi vị trí? => Khi `Máy quay` di chuyển lại gần hoặc khi phạm vi góc nhìn giảm, góc nhìn hẹp hơn khiến `Đối tượng` chiếm nhiều diện tích hơn trên màn hình. Ngược lại, khi `Máy quay` lùi xa hoặc `Phạm vi góc nhìn` tăng, `Đối tượng` trông nhỏ hơn dù vị trí của `Đối tượng` không thay đổi.
 
-- Vì sao `Đối tượng` có thể biến mất khỏi màn hình? `Đối tuownjg` có thể biến mất khỏi màn hình khi nằm ngoài vùng hiển thị. Đặc biệt khi `Near Clip Plane` được tăng lên và `Đối tượng` nằm gần `Máy quay` hơn khoảng cách này.
+- Vì sao `Đối tượng` có thể biến mất khỏi màn hình? `Đối tượng` có thể biến mất khỏi màn hình khi nằm ngoài vùng hiển thị. Đặc biệt khi `Near Clip Plane` được tăng lên và `Đối tượng` nằm gần `Máy quay` hơn khoảng cách này.
+
+## PHẦN E – SCREEN SPACE
+
+E1. Tạo script WorldToScreen.cs với nội dung:
+
+using UnityEngine;
+
+public class WorldToScreen : MonoBehaviour
+{
+    void Update()
+    {
+        Vector3 screenPos =
+            Camera.main.WorldToScreenPoint(transform.position);
+
+        Debug.Log(screenPos);
+    }
+}
+
+<img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/036b4e5d-a7a6-4dca-9937-7e6dc297f69e" />
+
+E2. Gắn script vào `Khối` và chạy game
+
+E3. Ghi lại:
+- Screen Position khi `Khối` ở giữa màn hình
+
+<img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/bd5acc15-b101-4a91-b780-2ec9d86807e6" />
+
+- Screen Position khi `Khối` ở góc dưới bên trái
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/c29e0b98-8c01-44aa-b0bf-635226c5fe5c" />
+
+E4. Trả lời:
+- Gốc tọa độ của `Screen Space` nằm ở đâu? => Gốc tọa độ của Screen Space nằm ở góc dưới bên trái màn hình.
+- `Screen Space` khác `World Space` như thế nào? => `World Space` là hệ tọa độ dùng để xác định vị trí của các đối tượng trong không gian 3D của Scene, trong khi `Screen Space` là hệ tọa độ 2D dựa trên pixel của màn hình, dùng để biểu diễn vị trí hiển thị của đối tượng trên màn hình.
 
